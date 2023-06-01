@@ -126,33 +126,42 @@ const verifiedUserType = async (req, res) => {
 // Function to call for checking if there is a currently logged in user
 // Description: Checks and validates received token for the client
 const checkIfLoggedIn = (req, res) => {
-  if (!req.cookies || !req.cookies.authToken) {
-    // No cookies / no authToken cookie sent
-    return res.send({ isLoggedIn: false });
+  try {
+    // console.log("entered try");
+    if (!req.cookies || !req.cookies.authToken) {
+      // No cookies / no authToken cookie sent
+      return res.send({ isLoggedIn: false });
+    }
+    // Token is present. Validate it
+    return jwt.verify(
+      req.cookies.authToken,
+      config.secret,
+      async (err, tokenPayload) => {
+        if (err) {
+          // Error validating token
+          return res.send({ isLoggedIn: false });
+        }
+        // find user by id indicated in token
+        const userId = tokenPayload._id;
+        const [user, owner, admin] = await Promise.all([
+          RegisteredUser.findOne({ _id: mongoose.Types.ObjectId(userId) }),
+          AccommodationOwner.findOne({ _id: mongoose.Types.ObjectId(userId) }),
+          Admin.findOne({ _id: mongoose.Types.ObjectId(userId) }),
+        ]);
+        // Failed to find user based on id inside token payload
+        if (!user && !owner && !admin) {
+          return res.send({ isLoggedIn: false })
+        } else {
+          //Token and user id are valid
+          console.log("User is currently logged in");
+          return res.send({ isLoggedIn: true });
+        }
+      });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: 'Something went wrong' });
+    return res.send({ success: false });
   }
-  // Token is present. Validate it
-  return jwt.verify(
-    req.cookies.authToken,
-    config.secret,
-    (err, tokenPayload) => {
-      if (err) {
-        // Error validating token
-        return res.send({ isLoggedIn: false });
-      }
-      // find user by id indicated in token
-      const userId = tokenPayload._id;
-      const user = RegisteredUser.findById(userId);
-      const owner = AccommodationOwner.findById(userId);
-      const admin = Admin.findById(userId);
-      // Failed to find user based on id inside token payload
-      if(!user && !owner && !admin){
-        return res.send({ isLoggedIn: false })
-      } else{
-        //Token and user id are valid
-        console.log("User is currently logged in");
-        return res.send({ isLoggedIn: true });
-      }
-    });
 }
 
 // Export all needed functions to be exported in router.js
