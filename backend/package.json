@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cloudinary": "^1.37.0",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "form-data": "^4.0.0",
+    "image-size": "^1.0.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^5.3.4",
+    "multer": "^1.4.5-lts.1",
+    "node.js": "^0.0.1-security",
+    "nodemailer": "^6.9.1",
+    "pdfkit": "^0.13.0",
+    "react-router": "^6.9.0",
+    "react-router-dom": "^6.9.0"
+  },
+  "type": "module"
+}

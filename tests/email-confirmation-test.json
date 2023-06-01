@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "873189ab-5094-455d-aa81-c953bdf82ff4",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27029514"
+	},
+	"item": [
+		{
+			"name": "Regiistered User Signup Testing",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"vhonne003@gmail.com\",\r\n    \"password\": \"password123\",\r\n    \"fname\": \"Juan\",\r\n    \"lname\": \"Dela Cruz\",\r\n    \"bday\": \"2000-04-24\",\r\n    \"contact\": \"12345678900\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/signup-user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"signup-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accommodation Owner Signup Testing ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test123@gmail.com\",\r\n    \"password\": \"password123\",\r\n    \"fname\": \"Juan\",\r\n    \"lname\": \"Dela Cruz\",\r\n    \"bday\": \"2000-04-24\",\r\n    \"contact\": \"12345678900\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/signup-accomodation-owner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"signup-accomodation-owner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User Test",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"vhonne003@gmail.com\",\r\n    \"password\": \"password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Email Confirmation (vhonne003)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/auth/confirm/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZob25uZTAwM0BnbWFpbC5jb20iLCJpYXQiOjE2ODI3NTYzMjd9.2kG7Moj0Py4-cDxdVBbPu0itlTvQoH-1BLkGpp6RD-A",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"confirm",
+						"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZob25uZTAwM0BnbWFpbC5jb20iLCJpYXQiOjE2ODI3NTYzMjd9.2kG7Moj0Py4-cDxdVBbPu0itlTvQoH-1BLkGpp6RD-A"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

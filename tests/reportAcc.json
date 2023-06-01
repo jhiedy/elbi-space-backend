@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "2ee11902-d394-4662-8a33-11fc40a0483a",
+		"name": "Report Accomodation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27031082"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/reportAcc",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"64291b08b9418a512780f634\",\r\n    \"accId\": \"64424c215bcf7819d0baa906\",\r\n    \"description\": \"req.body.fname is reporting\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/reportAcc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"reportAcc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/reportAcc",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"644224021f99ed20f584e8e5\",\r\n    \"accId\": \"64424c215bcf7819d0baa906\",\r\n    \"description\": \"req.body.fname is reporting\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/reportAcc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"reportAcc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/reportAcc",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accId\": \"64424c215bcf7819d0baa906\",\r\n    \"description\": \"req.body.fname is reporting\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/reportAcc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"reportAcc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accId\": \"ObjectId(\\\\\\\"64424c215bcf7819d0baa906\\\\\\\")\",\r\n    \"description\": \"Hi\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

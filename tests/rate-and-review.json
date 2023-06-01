@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "42684792-1f54-4b45-8970-70f236465585",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27029514"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"test123@gmail.com\",\r\n    \"accID\": \"String\",\r\n    \"ratings\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/add-rate-and-review",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"add-rate-and-review"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

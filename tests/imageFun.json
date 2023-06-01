@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "9fd6d4d2-72a9-42d6-b49f-19421196136d",
+		"name": "Image Manipulation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27031082"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/retrieveImage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accId\": \"644686617b9e73a992ca95e7\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/retrieveImage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"retrieveImage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/uploadImage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dir\": \"C:\\\\Users\\\\admin\\\\Desktop\\\\dump\\\\Applications.png\",\r\n    \"accId\": \"644686617b9e73a992ca95e7\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/uploadImage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"uploadImage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/retrieveDimensions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dir\": \"C:\\\\Users\\\\admin\\\\Desktop\\\\dump\\\\Applications.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/retrieveDimensions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"retrieveDimensions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

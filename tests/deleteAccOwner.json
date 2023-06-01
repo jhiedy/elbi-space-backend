@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "1734b9fd-055b-44ad-b03d-a6afb9e8238a",
+		"name": "Delete Accom Owner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27031082"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/deleteAcc",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accId\": \"644686667b9e73a992ca95e8\",\r\n    \"ownerId\": \"644890f91db9615554684bc4\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/deleteAcc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"deleteAcc"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

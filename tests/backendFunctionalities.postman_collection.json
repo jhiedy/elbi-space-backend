@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "90f44b5e-fca3-4d0f-82d2-de43498ffbce",
+		"name": "backendFunctionalities",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19037785",
+		"_collection_link": "https://galactic-robot-613411.postman.co/workspace/My-Workspace~6b46da34-e11d-42f7-80e2-6f2443c29101/collection/19037785-90f44b5e-fca3-4d0f-82d2-de43498ffbce?action=share&creator=19037785&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/addAccommodation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accId\": \"String\",\r\n    \"ownerId\": \"String\",\r\n    \"name\": \"String\",\r\n    \"pax\": 4,\r\n    \"rates\": 3,\r\n    \"distance\": 2,\r\n    \"location\": \"String\",\r\n    \"ratings\": 1,\r\n    \"amenities\": \"String\",\r\n    \"contact\": 0,\r\n    \"description\": \"String\",\r\n    \"rules\": \"String\",\r\n    \"policy\": \"String\",\r\n    \"availability\": true,\r\n    \"category\": \"String\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/addAccommodation",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addAccommodation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/archiveAccom",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accId\": \"String\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/archiveAccom",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"archiveAccom"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
