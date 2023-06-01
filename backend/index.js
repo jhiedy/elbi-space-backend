@@ -2,6 +2,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
 import cloudinary from 'cloudinary';
+import { config } from './config/auth.config.js';
 // import cors from 'cors';
 
 // import UserSchema from "./models/user.js";
@@ -46,7 +47,9 @@ const port = process.env.PORT || 3001;
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cookieParser());
+app.use(cookieParser(config.secret, {
+  domain: "https://elbi-space.vercel.app",
+}));
 // app.use(cors());
 
 // allow CORS
