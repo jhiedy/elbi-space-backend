@@ -2,7 +2,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
 import cloudinary from 'cloudinary';
-import cors from 'cors';
+// import cors from 'cors';
 
 // import UserSchema from "./models/user.js";
 import "./controller.js";
