@@ -29,51 +29,51 @@ const homepage = (req, res) => {
 const setUpRoutes = (app) => {
 
   // landing page
-  app.post("/api/signup-user", signUpRegUser);
-  app.post("/api/signup-accommodation-owner", signUpAccOwner);
-  app.post("/api/login", login);
-  app.post("/api/verifiedUserType", verifiedUserType);
-  app.post("/api/checkifloggedin", checkIfLoggedIn);
-  app.post("/api/retrieveAccom", retrieveAccom);
-  app.get("/api/topCategory", topApt);
+  app.post("/signup-user", signUpRegUser);
+  app.post("/signup-accommodation-owner", signUpAccOwner);
+  app.post("/login", login);
+  app.post("/verifiedUserType", verifiedUserType);
+  app.post("/checkifloggedin", checkIfLoggedIn);
+  app.post("/retrieveAccom", retrieveAccom);
+  app.get("/topCategory", topApt);
 
   // search page
-  app.post("/api/searchAccom", searchAccommodation);
-  app.get("/api/viewAccom", viewAccommodation);
+  app.post("/searchAccom", searchAccommodation);
+  app.get("/viewAccom", viewAccommodation);
 
   // accommodation  page
-  app.post("/api/reportAcc", reportAcc);
-  app.post("/api/addRateAndReview", rateAndReview);
-  app.post("/api/retrieveReviews", retrieveReviews);
-  app.get("/api/viewReviewList", viewReviewList); // disregard, duplicate of previous line
-  app.post("/api/findExistingReview", findExistingReview);
-  app.post("/api/add-bookmark", addBookmark);
-  app.post("/api/remove-bookmark", removeBookmark);
-  app.post("/api/check-bookmark", checkBookmark);
-  app.post("/api/edit-accommodation", editAccommodation);
+  app.post("/reportAcc", reportAcc);
+  app.post("/addRateAndReview", rateAndReview);
+  app.post("/findExistingReview", findExistingReview);
+  app.post("/retrieveReviews", retrieveReviews);
+  app.get("/viewReviewList", viewReviewList); // disregard, duplicate of previous line
+  app.post("/add-bookmark", addBookmark);
+  app.post("/remove-bookmark", removeBookmark);
+  app.post("/check-bookmark", checkBookmark);
+  app.post("/edit-accommodation", editAccommodation);
 
   // owner page
-  app.post("/api/addAccommodation", newAccommodation);
-  app.post("/api/archiveAccom", archiveAccommodation);
-  app.post("/api/deleteAccOwner", deleteAccOwner);
-  app.post("/api/retrieved-bookmarked", retrievebookmarked);
-  app.post("/api/generate-report", getReport);
-  app.post("/api/retrieveOwnerAccommodations", retrieveOwnerAccom);
-  app.post("/api/edit-user-without-pword", editUserWithoutPasswordChange);
-  app.post("/api/edit-user-with-pword", editUserWithPasswordChange);
+  app.post("/addAccommodation", newAccommodation);
+  app.post("/archiveAccom", archiveAccommodation);
+  app.post("/deleteAccOwner", deleteAccOwner);
+  app.post("/retrieved-bookmarked", retrievebookmarked);
+  app.post("/generate-report", getReport);
+  app.post("/retrieveOwnerAccommodations", retrieveOwnerAccom);
+  app.post("/edit-user-without-pword", editUserWithoutPasswordChange);
+  app.post("/edit-user-with-pword", editUserWithPasswordChange);
   // use /viewAccom to retrieve data of an accommodation owner clicks an accommodation
 
 
-  app.post("/api/deleteAccAdmin", deleteAccAdmin);
+  app.post("/deleteAccAdmin", deleteAccAdmin);
 
   // not sure what page
   app.get("/api/auth/confirm/:confirmationCode", verifyUser);
-  app.post("/api/retrieveDimensions", retrieveDimensions);
+  app.post("/retrieveDimensions", retrieveDimensions);
   // app.post("/uploadImage", uploadImage);
-  app.post("/api/uploadImage", handler);
-  app.post("/api/retrieveImage", retrieveImage);
-  app.post("/api/deleteReport", deleteReport);
-  app.post("/api/find-user", findUser);
+  app.post("/uploadImage", handler);
+  app.post("/retrieveImage", retrieveImage);
+  app.post("/deleteReport", deleteReport);
+  app.post("/find-user", findUser);
 }
 
 export default setUpRoutes;
