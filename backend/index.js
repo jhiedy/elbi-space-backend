@@ -48,13 +48,13 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser(config.secret, {
-  domain: "https://elbi-space.onrender.com",
+  domain: "https://elbi-space.vercel.app",
 }));
 // app.use(cors());
 
 // allow CORS
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://elbi-space.onrender.com");
+  res.setHeader("Access-Control-Allow-Origin", "https://elbi-space.vercel.app");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST");
   res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Access-Control-Allow-Methods, Origin, Accept, Content-Type");
   res.setHeader("Access-Control-Allow-Credentials", "true");
