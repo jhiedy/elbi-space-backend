@@ -74,6 +74,13 @@ const login = async (req, res) => {
       }
       const secretKey = config.secret;
       const token = jwt.sign(tokenPayload, secretKey);
+      res.cookie('authToken', token, {
+        domain: 'elbi-space.vercel.app', // Replace with your actual domain
+        httpOnly: true,
+        secure: true,
+        sameSite: 'strict',
+        maxAge: 60 * 60 * 1000, // Set maxAge to 1 hour (in milliseconds)
+      });
       // return the token to the client
       return res.send({ success: true, token, id: userType._id, message: "Successfully logged in.", userType: role });
     }
@@ -113,6 +120,13 @@ const verifiedUserType = async (req, res) => {
     }
     const secretKey = config.secret;
     const token = jwt.sign(tokenPayload, secretKey);
+    res.cookie('authToken', token, {
+      domain: 'elbi-space.vercel.app', // Replace with your actual domain
+      httpOnly: true,
+      secure: true,
+      sameSite: 'strict',
+      maxAge: 60 * 60 * 1000, // Set maxAge to 1 hour (in milliseconds)
+    });
     // return the token to the client
     return res.send({ success: true, token, id: id, message: "Successfully logged in.", userType: role });
   // Catch server-side errors encountered
