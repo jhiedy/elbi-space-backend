@@ -8,7 +8,7 @@ const Admin = mongoose.model("Admin");
 
 async function editUserWithPasswordChange(req, res) {
     const userType = req.body.userType;
-    const id = req.body.id;
+    const id = mongoose.Types.ObjectId(id);
 
     console.log(id);
     console.log(userType);
@@ -22,7 +22,7 @@ async function editUserWithPasswordChange(req, res) {
 
             const hashedPassword = await bcrypt.hash(req.body.newPassword, 10); 
             // Check if the user and the password is correct
-            AccommodationOwner.updateOne({ _id: req.body.id },
+            AccommodationOwner.updateOne({ _id: id },
                 {
                     $set: {
                         fname: req.body.fname,
@@ -54,7 +54,7 @@ async function editUserWithPasswordChange(req, res) {
 
             const hashedPassword = await bcrypt.hash(req.body.newPassword, 10); 
             // Check if the user and the password is correct
-            RegisteredUser.updateOne({ _id: req.body.id },
+            RegisteredUser.updateOne({ _id: id },
                 {
                     $set: {
                         fname: req.body.fname,
@@ -85,7 +85,7 @@ async function editUserWithPasswordChange(req, res) {
 
             const hashedPassword = await bcrypt.hash(req.body.newPassword, 10); 
             // Check if the user and the password is correct
-            Admin.updateOne({ _id: req.body.id },
+            Admin.updateOne({ _id: id },
                 {
                     $set: {
                         fname: req.body.fname,
@@ -112,14 +112,14 @@ async function editUserWithPasswordChange(req, res) {
 
 const editUserWithoutPasswordChange = (req, res) => {
     const userType = req.body.userType;
-    const id = req.body.id;
+    const id = mongoose.Types.ObjectId(id);
 
     console.log(id);
     console.log(userType);
 
     if(userType == "owner"){
         // Check if the user and the password is correct
-        AccommodationOwner.updateOne({ _id: req.body.id },
+        AccommodationOwner.updateOne({ _id: id },
             {
                 $set: {
                     fname: req.body.fname,
@@ -139,7 +139,7 @@ const editUserWithoutPasswordChange = (req, res) => {
     }
     else if(userType == "user"){
         // Check if the user and the password is correct
-        RegisteredUser.updateOne({ _id: req.body.id },
+        RegisteredUser.updateOne({ _id: id },
             {
                 $set: {
                     fname: req.body.fname,
@@ -159,7 +159,7 @@ const editUserWithoutPasswordChange = (req, res) => {
     }
     else{
         // Check if the user and the password is correct
-        Admin.updateOne({ _id: req.body.id },
+        Admin.updateOne({ _id: id },
             {
                 $set: {
                     fname: req.body.fname,
