@@ -142,13 +142,27 @@ const verifiedUserType = async (req, res) => {
 const checkIfLoggedIn = (req, res) => {
   try {
     // console.log("entered try");
-    if (!req.cookies || !req.cookies.authToken) {
-      // No cookies / no authToken cookie sent
+    // if (!req.cookies || !req.cookies.authToken) {
+    //   // No cookies / no authToken cookie sent
+    //   return res.send({ isLoggedIn: false, error: 'No cookie sent' });
+    // }
+    if (!req.headers.cookie) {
+      // No cookies sent in the request
       return res.send({ isLoggedIn: false, error: 'No cookie sent' });
     }
+
+    const cookiesArray = req.headers.cookie.split('; ');
+    const cookies = {};
+    for (let cookieStr of cookiesArray) {
+      const [key, value] = cookieStr.split('=');
+      cookies[key] = value;
+    }
+
+    const authToken = cookies.authToken;
     // Token is present. Validate it
     return jwt.verify(
-      req.cookies.authToken,
+      // req.cookies.authToken,
+      authToken,
       config.secret,
       async (err, tokenPayload) => {
         if (err) {
