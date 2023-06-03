@@ -165,11 +165,11 @@ const checkIfLoggedIn = (req, res) => {
         // Failed to find user based on id inside token payload
         if (!user && !owner && !admin) {
           return res.send({ isLoggedIn: false })
-        } else {
-          //Token and user id are valid
-          console.log("User is currently logged in");
-          return res.send({ isLoggedIn: true });
         }
+        
+        //Token and user id are valid
+        console.log("User is currently logged in");
+        return res.send({ isLoggedIn: true });
       });
   } catch (error) {
     console.log(error);

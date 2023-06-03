@@ -48,7 +48,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser(config.secret, {
-  domain: "https://elbi-space.vercel.app",
+  domain: "elbi-space.vercel.app",
   secure: true,
 }));
 // app.use(cors());
