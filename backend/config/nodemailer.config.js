@@ -19,10 +19,19 @@ const emailConfirmation = (fname, lname, email, confirmationCode) =>{
         from: `Elbi Space <${config.user}>`,
         to: email,
         subject: "Please confirm your account",
-        html: `<h1>Email Confirmation</h1>
-        <h2>Hello, ${fname} ${lname}</h2>
-        <p>Thank you for signing up with our service. Please confirm your email by clicking on the following link</p>
-        <a href=http://localhost:3001/api/auth/confirm/${confirmationCode}> Click here</a>
+        html: `
+        <img src = "https://res.cloudinary.com/dxujn4elq/image/upload/v1685784134/header_nle9ps.png" alt="Elbi Space Header"/>
+        <h2>Hello, ${fname} ${lname}!</h2>
+        <p style="text-align: justify; text-justify: inter-word;">
+          Thank you for your interest in signing up to Elbi Space, your home for space discovery around Los Baños.
+          We are sending this email to confirm that you have provided your email address as part of the account registration
+          process for your Elbi Space account.</p>
+        <p style="text-align: justify; text-justify: inter-word;">By clicking the link below, you have read the terms and conditions for this site and your account will be verified.</p>
+        <br>
+        <a href=http://localhost:3001/api/auth/confirm/${confirmationCode} style="background-color: #D25525; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px;">Verify Account</a>
+        <br>
+        <br>
+        <img src = "https://res.cloudinary.com/dxujn4elq/image/upload/v1685784134/footer_adfycq.png" alt="Elbi Space Footer"/>
         </div>`,
   }).catch(err => console.log(err));
 };

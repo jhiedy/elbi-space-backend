@@ -20,12 +20,12 @@ function bookmark(req, res, flag) {
                     // user.save();
 
                     // if id as string needs to be stored
-                    if(flag == 1){
+                    if (flag === 1) {
                         user.bookmarks.push(req.body.accId);    // append accomodation id to user bookmarks list
                         user.save();
-                    } else { 
+                    } else {
                         user.bookmarks.pull(req.body.accId);
-                        user.save();                    
+                        user.save();
                     }
 
                     return res.send({ success: true });
@@ -37,7 +37,7 @@ function bookmark(req, res, flag) {
     });
 }
 
-const removeBookmark = (req, res)=> {
+const removeBookmark = (req, res) => {
     bookmark(req, res, 0);
 }
 
@@ -52,32 +52,32 @@ function retrievebookmarked(req, res) {
             const bookmarked = user.bookmarks;
             const bList = [];
 
-            for (let i = 0; i < bookmarked.length ; i++) {
+            for (let i = 0; i < bookmarked.length; i++) {
                 bList.push(mongoose.Types.ObjectId(bookmarked[i]));
             }
 
-            Accommodation.find({'_id': { $in:bList }}, (err, items) => {
+            Accommodation.find({ '_id': { $in: bList } }, (err, items) => {
                 if (!err) {
                     console.log(items);
-                    res.send({success: true, items: items.reverse()});
+                    res.send({ success: true, items: items.reverse() });
                 } else {
-                    res.send({success: false});
+                    res.send({ success: false });
                 }
             })
         } else {
-            res.send({success: false});
+            res.send({ success: false });
         }
     });
 
     // const items = [];
     // for (let i = 0; i < bookmarked.length ; i++) {
     //     await Accommodation.findOne({ _id: mongoose.Types.ObjectId(bookmarked[0]) }, (err, accom) => {
-            // if (!err && accom) {
-            //     console.log(accom);
-            //     items.push(accom);
-            // } else {
-            //     res.send({success: false});
-            // }
+    // if (!err && accom) {
+    //     console.log(accom);
+    //     items.push(accom);
+    // } else {
+    //     res.send({success: false});
+    // }
     //     })
     // }
     // res.send({success: true, items: items});
@@ -86,15 +86,15 @@ function retrievebookmarked(req, res) {
 const checkBookmark = (req, res) => {
     RegisteredUser.findOne({ _id: mongoose.Types.ObjectId(req.body.userId) }, (err, user) => {
         if (!err && user) {
-            const result = user.bookmarks.find(acc => acc == req.body.accId);
+            const result = user.bookmarks.find(acc => acc === req.body.accId);
             // console.log(result);
-            if(result) {
-                res.send({success: true, bookmarked: true});
+            if (result) {
+                res.send({ success: true, bookmarked: true });
             } else {
-                res.send({success: true, bookmarked: false});
+                res.send({ success: true, bookmarked: false });
             }
         } else {
-            res.send({success: false});
+            res.send({ success: false });
         }
     })
 }

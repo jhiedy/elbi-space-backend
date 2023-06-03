@@ -171,7 +171,7 @@ const verifyUser = async (req, res, next) => {
                 return res.status(500).send({ message: err });;
             }
             else{
-                return res.send({ success: true, message: "Email confirmed successfully!" }); 
+                res.redirect('https://elbi-space.vercel.app');
             }
         });
     } catch (error) {

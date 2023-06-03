@@ -10,11 +10,7 @@ async function preparePdf (res) {
     doc.pipe(res);
     
     // generate the report
-    doc.image('../src/Components/assets/logo_with_text.png', {
-        fit: [150, 200],
-        x: 50, 
-        y: 50
-    });
+    doc.image('./assets/report_header.png', 50, 0, {scale: 0.25});
 }
 
 async function generateReport (bookmarks, res) {

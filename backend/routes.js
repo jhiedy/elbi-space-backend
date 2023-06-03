@@ -21,6 +21,7 @@ import { retrieveOwnerAccom } from "./retrieveOwnerAccom.js";
 import handler from "./upload.js";
 import { editAccommodation } from "./editAccom.js";
 import { editUserWithoutPasswordChange, editUserWithPasswordChange } from "./editUser.js";
+import { deleteReview } from "./deleteReview.js";
 
 const homepage = (req, res) => {
   res.send("Welcome to the homepage");
@@ -32,8 +33,8 @@ const setUpRoutes = (app) => {
   app.post("/signup-user", signUpRegUser);
   app.post("/signup-accommodation-owner", signUpAccOwner);
   app.post("/login", login);
-  app.post("/checkifloggedin", checkIfLoggedIn);
   app.post("/verifiedUserType", verifiedUserType);
+  app.post("/checkifloggedin", checkIfLoggedIn);
   app.post("/retrieveAccom", retrieveAccom);
   app.get("/topCategory", topApt);
 
@@ -51,6 +52,7 @@ const setUpRoutes = (app) => {
   app.post("/remove-bookmark", removeBookmark);
   app.post("/check-bookmark", checkBookmark);
   app.post("/edit-accommodation", editAccommodation);
+  app.post("/deleteReview", deleteReview);
 
   // owner page
   app.post("/addAccommodation", newAccommodation);

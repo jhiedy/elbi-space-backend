@@ -13,7 +13,7 @@ const findUser = (req, res) => {
 
     if(userType == "owner"){
         // Check if the user and the password is correct
-        AccommodationOwner.findOne({ _id: mongoose.Types.ObjectId(id) }, (err, owner) => {
+        AccommodationOwner.findOne({ _id: id }, (err, owner) => {
             // If the user doesn't exist
             if (err || !owner){
                 return res.send({ success: false, message: "Accommodation owner doesn't exist!"});
@@ -22,7 +22,7 @@ const findUser = (req, res) => {
         })
     }
     else{
-        RegisteredUser.findOne({ _id: mongoose.Types.ObjectId(id) }, (err, user) => {
+        RegisteredUser.findOne({ _id: id }, (err, user) => {
             // If the user doesn't exist
             if (err || !user){
                 return res.send({ success: false, message: "Registered user doesn't exist!"});
