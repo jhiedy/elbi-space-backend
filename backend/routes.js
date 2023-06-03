@@ -33,8 +33,8 @@ const setUpRoutes = (app) => {
   app.post("/signup-accommodation-owner", signUpAccOwner);
   app.post("/login", login);
   app.post("/verifiedUserType", verifiedUserType);
-  app.post("/checkifloggedin", checkIfLoggedIn);
   app.post("/retrieveAccom", retrieveAccom);
+  app.get("/checkifloggedin", checkIfLoggedIn);
   app.get("/topCategory", topApt);
 
   // search page
