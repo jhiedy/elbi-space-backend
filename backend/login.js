@@ -144,7 +144,7 @@ const checkIfLoggedIn = (req, res) => {
     // console.log("entered try");
     if (!req.cookies || !req.cookies.authToken) {
       // No cookies / no authToken cookie sent
-      return res.send({ isLoggedIn: false });
+      return res.send({ isLoggedIn: false, error: 'No cookie sent' });
     }
     // Token is present. Validate it
     return jwt.verify(
@@ -153,7 +153,7 @@ const checkIfLoggedIn = (req, res) => {
       async (err, tokenPayload) => {
         if (err) {
           // Error validating token
-          return res.send({ isLoggedIn: false });
+          return res.send({ isLoggedIn: false, error: 'Invalid token' });
         }
         // find user by id indicated in token
         const userId = tokenPayload._id;
@@ -164,7 +164,7 @@ const checkIfLoggedIn = (req, res) => {
         ]);
         // Failed to find user based on id inside token payload
         if (!user && !owner && !admin) {
-          return res.send({ isLoggedIn: false })
+          return res.send({ isLoggedIn: false, error: 'User not found' });
         }
         
         //Token and user id are valid
