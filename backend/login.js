@@ -78,7 +78,7 @@ const login = async (req, res) => {
         domain: 'elbi-space.vercel.app', // Replace with your actual domain
         httpOnly: true,
         secure: true,
-        sameSite: 'strict',
+        sameSite: 'none',
         maxAge: 60 * 60 * 1000, // Set maxAge to 1 hour (in milliseconds)
       });
       // return the token to the client
@@ -124,7 +124,7 @@ const verifiedUserType = async (req, res) => {
       domain: 'elbi-space.vercel.app', // Replace with your actual domain
       httpOnly: true,
       secure: true,
-      sameSite: 'strict',
+      sameSite: 'none',
       maxAge: 60 * 60 * 1000, // Set maxAge to 1 hour (in milliseconds)
     });
     // return the token to the client
