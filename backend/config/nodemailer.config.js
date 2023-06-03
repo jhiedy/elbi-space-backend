@@ -28,7 +28,7 @@ const emailConfirmation = (fname, lname, email, confirmationCode) =>{
           process for your Elbi Space account.</p>
         <p style="text-align: justify; text-justify: inter-word;">By clicking the link below, you have read the terms and conditions for this site and your account will be verified.</p>
         <br>
-        <a href=http://localhost:3001/api/auth/confirm/${confirmationCode} style="background-color: #D25525; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px;">Verify Account</a>
+        <a href=https://elbi-space-api.onrender.com/api/auth/confirm/${confirmationCode} style="background-color: #D25525; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px;">Verify Account</a>
         <br>
         <br>
         <img src = "https://res.cloudinary.com/dxujn4elq/image/upload/v1685784134/footer_adfycq.png" alt="Elbi Space Footer"/>
