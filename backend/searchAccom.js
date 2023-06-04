@@ -79,7 +79,9 @@ const searchAccommodation = (req, res) => {
     ).exec((err, accommodations) => { // finds all Accommodations that fit the searched string/word regardless of text case
         if (!err) {
             // conditional statements
-            return res.send({ success: true, pageCount: Math.ceil(accommodations.length / 20), count: accommodations.length, posts: accommodations });
+            const page = req.body.page;
+            const start = (page - 1) * 12;
+            return res.send({ success: true, pageCount: Math.ceil(accommodations.length / 12), count: accommodations.length, posts: accommodations.slice(start, start+12) });
         } else {
             console.log(err);
             return res.send({ success: false, error: err });

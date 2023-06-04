@@ -37,6 +37,11 @@ const Admin = new mongoose.model("Admin", {
     lname: { type: String, required: true },
     contact: { type: String, required: true },
     bday: { type: Date, required: true },
+    status: {
+        type: String,
+        enum: ['Pending', 'Active'],
+        default: 'Pending'
+    },
 });
 
 // // Create a mongoose model, define a schema directly in the model

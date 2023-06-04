@@ -24,7 +24,9 @@ const newAccommodation = (req, res) => {
         availability: req.body.availability,
         category: req.body.category,
         archiveStatus: req.body.archiveStatus,
-        images: req.body.images
+        images: req.body.images,
+        longitude: req.body.longitude,
+        latitude: req.body.latitude
     });
 
     console.log("New Accommodation: ");

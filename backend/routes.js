@@ -22,6 +22,7 @@ import handler from "./upload.js";
 import { editAccommodation } from "./editAccom.js";
 import { editUserWithoutPasswordChange, editUserWithPasswordChange } from "./editUser.js";
 import { deleteReview } from "./deleteReview.js";
+import { retrieveReports } from "./retrieveReports.js";
 
 const homepage = (req, res) => {
   res.send("Welcome to the homepage");
@@ -40,7 +41,7 @@ const setUpRoutes = (app) => {
 
   // search page
   app.post("/searchAccom", searchAccommodation);
-  app.get("/viewAccom", viewAccommodation);
+  app.post("/viewAccom", viewAccommodation);
 
   // accommodation  page
   app.post("/reportAcc", reportAcc);
@@ -65,6 +66,8 @@ const setUpRoutes = (app) => {
   app.post("/edit-user-with-pword", editUserWithPasswordChange);
   // use /viewAccom to retrieve data of an accommodation owner clicks an accommodation
 
+  // admin page
+  app.post("/retrieveReports", retrieveReports);
 
   app.post("/deleteAccAdmin", deleteAccAdmin);
 

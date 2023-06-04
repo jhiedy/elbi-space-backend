@@ -22,7 +22,9 @@ const editAccommodation = (req, res) => {
                 availability: req.body.availability,
                 category: req.body.category,
                 archiveStatus: req.body.availability,
-                images: req.body.images
+                images: req.body.images,
+                longitude: req.body.longitude,
+                latitude: req.body.latitude
             }
         },
         function (err, docs) {

@@ -10,47 +10,17 @@ const Accommodation = mongoose.model("Accommodation");
 
 // Description: show accomodations by 
 const retrieveAccom = (req, res) => {
-    const brgy =  req.body.barangay;
     const ctgy = req.body.category;
-    
-    // accommodations should be available for booking to be shown
-    if(brgy != "" && ctgy != ""){ // may barangay and category entry
-        Accommodation.find({ barangay: brgy, category: ctgy }, (err, accommodations) => {
-            if(!err) {   
-                // conditional statements
-                if(accommodations != null) { // non-empty list
-                    accommodations.sort((a, b) => a.rates - b.rates);
-                    return res.send({ success: true, posts: accommodations });
-                } else { // empty list of accommodations
-                    return res.send({ success: true, posts: accommodations });
-                }
-            } else {
-                console.log(err);
-                return res.send({ success: false });
-            }
-        });
-    } else if(brgy == "" && ctgy != "") { // may category pero walang barangay
+    if(ctgy) { // may category pero walang barangay
         Accommodation.find({ category: ctgy }, (err, accommodations) => {
             if(!err) {   
                 // conditional statements
                 if(accommodations != null) { // non-empty list
                     accommodations.sort((a, b) => a.rates - b.rates);
-                    return res.send({ success: true, posts: accommodations });
-                } else { // empty list of accommodations
-                    return res.send({ success: true, posts: accommodations });
-                }
-            } else {
-                console.log(err);
-                return res.send({ success: false });
-            }
-        });
-    } else if(brgy != "" && ctgy ==  "") { // may barangay pero walang 
-        Accommodation.find({ barangay: brgy }, (err, accommodations) => {
-            if(!err) {   
-                // conditional statements
-                if(accommodations != null) { // non-empty list
-                    accommodations.sort((a, b) => a.rates - b.rates);
-                    return res.send({ success: true, posts: accommodations });
+                    const page = req.body.page;
+                    const start = (page - 1) * 12;
+                    return res.send({ success: true, pageCount: Math.ceil(accommodations.length / 12), 
+                    posts: accommodations.slice(start, start+12) });
                 } else { // empty list of accommodations
                     return res.send({ success: true, posts: accommodations });
                 }
@@ -65,7 +35,10 @@ const retrieveAccom = (req, res) => {
                 // conditional statements
                 if(accommodations != null) { // non-empty list
                     accommodations.sort((a, b) => a.rates - b.rates);
-                    return res.send({ success: true, posts: accommodations });
+                    const page = req.body.page;
+                    const start = (page - 1) * 12;
+                    return res.send({ success: true, pageCount: Math.ceil(accommodations.length / 12), 
+                    posts: accommodations.slice(start, start+12) });
                 } else { // empty list of accommodations
                     return res.send({ success: true, posts: accommodations });
                 }

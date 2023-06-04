@@ -9,7 +9,7 @@ const archiveAccommodation = (req, res) => {
     Accommodation.updateOne({ _id: mongoose.Types.ObjectId(req.body.accId) },
         {
             $set: {
-                archiveStatus: true
+                archiveStatus: req.body.archiveStatus
             }
         },
         function (err, docs) {
