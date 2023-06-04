@@ -4,7 +4,7 @@ import './controller.js';
 const Accommodation = mongoose.model("Accommodation");
 
 const editAccommodation = (req, res) => {
-
+    console.log(req.body);
     Accommodation.updateOne({ _id: req.body.id },
         {
             $set: {
@@ -31,6 +31,7 @@ const editAccommodation = (req, res) => {
             if (!err) {
                 res.send({ success: true, message: "Accommodation detail's edited successfully!" })
             } else {
+                console.log(err);
                 res.send({ success: false, message: "Failed to edit accommodation details!" })
             }
         })

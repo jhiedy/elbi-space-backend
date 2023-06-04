@@ -14,10 +14,17 @@ const retrieveReviews = (req, res) => {
 
     if (req.body.forWhat == "accommodation") {
         console.log("here");
-        Reviews.find({ accId: req.body.id }, (err, reviews) => {
+        let filter;
+        if(req.body.rating == 6) {
+            filter = { accId: req.body.id };
+        } else {
+            filter = { accId: req.body.id, rating: req.body.rating }
+        }
+        
+        Reviews.find(filter, (err, reviews) => {
             if (!err) {
                 const total = reviews.length;
-                const totalPages = Math.ceil(total / 20);
+                const totalPages = Math.ceil(total / 3);
 
                 // conditional statements
                 if (reviews != null) { // non-empty list
@@ -63,7 +70,9 @@ const retrieveReviews = (req, res) => {
                             console.log("sending data...");
                             console.log(reviewModified);
 
-                            return res.send({ success: true, posts: reviewModified, count: total, pages: totalPages });
+                            const page = req.body.page;
+                            const start = (page - 1) * 3;
+                            return res.send({ success: true, posts: reviewModified.slice(start, start+3), count: total, pages: totalPages });
 
                         } else {
                             res.send({ success: false, message: "Failed retrieving reviewers." });
@@ -72,7 +81,9 @@ const retrieveReviews = (req, res) => {
 
 
                 } else {
-                    return res.send({ success: true, posts: reviews, count: total, pages: totalPages });
+                    const page = req.body.page;
+                    const start = (page - 1) * 3;
+                    return res.send({ success: true, posts: reviews.slice(start, start+3), count: total, pages: totalPages });
                 }
             } else {
                 return res.send({ success: false, message: err });
@@ -82,7 +93,7 @@ const retrieveReviews = (req, res) => {
         Reviews.find({ userId: req.body.id }, (err, reviews) => {
             if (!err) {
                 const total = reviews.length;
-                const totalPages = Math.ceil(total / 20);
+                const totalPages = Math.ceil(total / 3);
                 const ordered = reviews.reverse();
 
                 // conditional statements
@@ -101,7 +112,9 @@ const retrieveReviews = (req, res) => {
                         }
                     })
                 } else {
-                    return res.send({ success: true, posts: reviews, count: total, pages: totalPages, accs: [] });
+                    const page = req.body.page;
+                    const start = (page - 1) * 3;
+                    return res.send({ success: true, posts: reviews.slice(start, start+3), count: total, pages: totalPages, accs: [] });
                 }
             } else {
                 return res.send({ success: false });
