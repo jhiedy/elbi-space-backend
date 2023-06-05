@@ -21,7 +21,7 @@ const editAccommodation = (req, res) => {
                 policy: req.body.policy,
                 availability: req.body.availability,
                 category: req.body.category,
-                archiveStatus: req.body.availability,
+                archiveStatus: req.body.archiveStatus,
                 images: req.body.images,
                 longitude: req.body.longitude,
                 latitude: req.body.latitude
