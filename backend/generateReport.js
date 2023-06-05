@@ -39,7 +39,7 @@ async function generateReport (bookmarks, res) {
      
         doc.font('Helvetica-Bold')
         .fontSize(24)
-        .text(`${i+1}. ${accommodation.name}`, 60, y);
+        .text(`${i+1}. ${accommodation.name}`, 60, z);
 
         // y = y + 30;
 
