@@ -53,33 +53,33 @@ async function generateReport (bookmarks, res) {
         doc.text(`Availability: ${isAvailable}`);
         doc.text(`Amenities: ${accommodation.amenities}`);
         doc.text(`Description: ${accommodation.description}`);
-        async function fetchImage(src) {
-            const image = await axios
-                .get(src, {
-                    responseType: 'arraybuffer'
-                })
-            return image.data;
-        }
+        // async function fetchImage(src) {
+        //     const image = await axios
+        //         .get(src, {
+        //             responseType: 'arraybuffer'
+        //         })
+        //     return image.data;
+        // }
         
-        let x = 60;
-        let count = 0;
-        for(let j = 0; j < accommodation.images.length; j++) {
-            if(["jpg", "peg", "png"].includes(accommodation.images[j].substring(accommodation.images[j].length-3))) {
-            const logo = await fetchImage(accommodation.images[j]);
-            if(count < 2) {
-                doc.image(logo, x, y, {width: 150, height: 150});
-                x = x + 160;
-                count++;
-            } else {
-                doc.image(logo, x, y, {width: 150, height: 150});
-                x = 60;
-                y = y + 150;
-                count = 0;
-            }
-            }
+        // let x = 60;
+        // let count = 0;
+        // for(let j = 0; j < accommodation.images.length; j++) {
+        //     if(["jpg", "peg", "png"].includes(accommodation.images[j].substring(accommodation.images[j].length-3))) {
+        //     const logo = await fetchImage(accommodation.images[j]);
+        //     if(count < 2) {
+        //         doc.image(logo, x, y, {width: 150, height: 150});
+        //         x = x + 160;
+        //         count++;
+        //     } else {
+        //         doc.image(logo, x, y, {width: 150, height: 150});
+        //         x = 60;
+        //         y = y + 150;
+        //         count = 0;
+        //     }
+        //     }
             // y += 200;
             // doc.text(accommodation.images[j]);
-        }
+        // }
     }
     doc.end();
 }
