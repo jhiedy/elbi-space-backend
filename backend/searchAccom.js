@@ -10,7 +10,7 @@ const Accommodation = mongoose.model("Accommodation");
 
 const searchAccommodation = (req, res) => {
 
-    var updateBlock = {};
+    var updateBlock = {archiveStatus: false};
     var sort = 'name', order = 1; // default values
     var sortby = {}
 

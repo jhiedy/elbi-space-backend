@@ -12,7 +12,7 @@ const Accommodation = mongoose.model("Accommodation");
 const retrieveAccom = (req, res) => {
     const ctgy = req.body.category;
     if(ctgy) { // may category pero walang barangay
-        Accommodation.find({ category: ctgy }, (err, accommodations) => {
+        Accommodation.find({ category: ctgy, archiveStatus: false }, (err, accommodations) => {
             if(!err) {   
                 // conditional statements
                 if(accommodations != null) { // non-empty list
@@ -30,7 +30,7 @@ const retrieveAccom = (req, res) => {
             }
         });
     } else { // parehong wala
-        Accommodation.find( (err, accommodations) => {
+        Accommodation.find( {archiveStatus: false}, (err, accommodations) => {
             if(!err) {   
                 // conditional statements
                 if(accommodations != null) { // non-empty list
